@@ -11,6 +11,7 @@ for(let i = 0; i < numOfDrumButtons; i++){
 
 document.addEventListener("keypress", function(event){
     makeSound(event.key);
+    buttonAnimation(event.key);
 })
 
 //Detecting Keyboard press
@@ -47,6 +48,14 @@ const makeSound = (key) =>{
         default:
             console.log(buttonInnerHTML);
     }
+}
+
+const buttonAnimation = (currentKey) =>{
+    var activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+    }, 100);
 }
 
 
